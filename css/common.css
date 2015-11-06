@@ -1,0 +1,70 @@
+body {
+  background-color: #101010;
+  margin: 40px 0; }
+
+#page-wrapper {
+  width: 1400px;
+  min-height: calc(100vh - 80px);
+  margin: 0 auto;
+  background-color: #202020;
+  border: 1px solid cyan;
+  box-sizing: border-box;
+  box-shadow: 0px 15px 30px 10px black; }
+  .js #page-wrapper {
+    position: relative;
+    top: 40px;
+    opacity: 0;
+    -webkit-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s; }
+  .js.transition #page-wrapper {
+    top: 0;
+    opacity: 1; }
+
+#page {
+  width: 1200px;
+  margin: 0 auto; }
+
+h1, h2, h3, h4 {
+  color: cyan;
+  -webkit-transition: color 1s;
+  transition: color 1s; }
+
+a {
+  text-decoration: none; }
+
+.section {
+  margin: 20px 0;
+  border-top: 1px solid cyan;
+  border-bottom: 1px solid cyan; }
+
+#projects .content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  #projects .content .project {
+    width: calc(33% - 20px);
+    padding: 20px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    border: 1px solid cyan;
+    box-shadow: 0px 15px 30px 10px black;
+    -webkit-transition: box-shadow .5s;
+    transition: box-shadow .5s;
+    margin-bottom: 30px; }
+    #projects .content .project:hover {
+      box-shadow: 0px 15px 30px 10px cyan; }
+      #projects .content .project:hover h3 {
+        color: white; }
+    .js #projects .content .project {
+      position: relative;
+      top: 40px;
+      opacity: 0;
+      -webkit-transition: top 1s, opacity 1s;
+      transition: top 1s, opacity 1s; }
+      .js #projects .content .project.up {
+        top: 0;
+        opacity: 1; }

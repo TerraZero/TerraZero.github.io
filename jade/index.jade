@@ -1,0 +1,15 @@
++html
+  +page
+    +header
+    #content
+      h1.title
+        | TerraZero
+      #projects.section
+        h2
+          | Projects
+        .content.projects
+          - for (var index in vars.projects) {
+            a.project(class=vars.projects[index].name, href=vars.projects[index].name)
+              +invoke(vars.projects[index].name)
+          - }
+    +footer

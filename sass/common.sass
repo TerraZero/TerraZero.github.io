@@ -1,0 +1,62 @@
+body
+  background-color: #101010
+  margin: 40px 0
+
+#page-wrapper
+  width: 1400px
+  min-height: calc(100vh - 80px)
+  margin: 0 auto
+  background-color: #202020
+  border: 1px solid cyan
+  box-sizing: border-box
+  box-shadow: 0px 15px 30px 10px black
+  .js &
+    position: relative
+    top: 40px
+    opacity: 0
+    transition: opacity .5s, top .5s
+  .js.transition &
+    top: 0
+    opacity: 1
+
+#page
+  width: 1200px
+  margin: 0 auto
+
+h1, h2, h3, h4
+  color: cyan
+  transition: color 1s
+
+a
+  text-decoration: none
+
+.section
+  margin: 20px 0
+  border-top: 1px solid cyan
+  border-bottom: 1px solid cyan
+
+#projects
+  .content
+    display: flex
+    flex-wrap: wrap
+    .project
+      width: calc(33% - 20px)
+      padding: 20px
+      box-sizing: border-box
+      margin-right: 20px
+      border: 1px solid cyan
+      box-shadow: 0px 15px 30px 10px black
+      transition: box-shadow .5s
+      margin-bottom: 30px
+      &:hover
+        box-shadow: 0px 15px 30px 10px cyan
+        h3
+          color: white
+      .js &
+        position: relative
+        top: 40px
+        opacity: 0
+        transition: top 1s, opacity 1s
+        &.up
+          top: 0
+          opacity: 1

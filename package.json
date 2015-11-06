@@ -1,0 +1,19 @@
+{
+  "name": "GDS-System",
+  "version": "1.0.0",
+  "description": "GDS System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TerraZero",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "0.0.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.0.4"
+  }
+}
