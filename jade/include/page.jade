@@ -1,5 +1,6 @@
-mixin page
-  #page-wrapper
+mixin page(classes)
+  - classes = (classes || []).join('-page ') + '-page';
+  #page-wrapper(class=classes)
     #page
       block
 

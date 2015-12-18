@@ -45,7 +45,8 @@ function jadeVars() {
     projects: [],
   };
   var css = fs.readdirSync('css');
-  var js = fs.readdirSync('js');
+  // var js = fs.readdirSync('js');
+  var js = ['jquery-2.1.4.min.js', 'dzmapping.js', 'test.js'];
   var projects = fs.readdirSync('jade/projects');
 
   for (var index in css) {

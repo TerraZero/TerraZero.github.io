@@ -1,62 +1,257 @@
 body
   background-color: #101010
-  margin: 40px 0
+  min-height: 100vh
+  margin: 0
 
-#page-wrapper
-  width: 1400px
-  min-height: calc(100vh - 80px)
-  margin: 0 auto
-  background-color: #202020
-  border: 1px solid cyan
-  box-sizing: border-box
-  box-shadow: 0px 15px 30px 10px black
-  .js &
-    position: relative
-    top: 40px
-    opacity: 0
-    transition: opacity .5s, top .5s
-  .js.transition &
+$ani: cubic-bezier(.6,.1,0,1)
+// $ani: cubic-bezier(.2,1,.5,1)
+
+.svg-page, .index-page
+
+  body
+    margin: 40px 0
+
+  &#page-wrapper
+    width: 1400px
+    min-height: calc(100vh - 80px)
+    margin: 0 auto
+    background-color: #202020
+    border: 1px solid cyan
+    box-sizing: border-box
+    box-shadow: 0px 15px 30px 10px black
+    .js &
+      position: relative
+      top: 40px
+      opacity: 0
+      transition: opacity .5s, top .5s
+    .js.transition &
+      top: 0
+      opacity: 1
+
+  #page
+    width: 1200px
+    margin: 0 auto
+
+  h1, h2, h3, h4
+    color: cyan
+    transition: color 1s
+
+  a
+    text-decoration: none
+
+  .section
+    margin: 20px 0
+    border-top: 1px solid cyan
+    border-bottom: 1px solid cyan
+
+  #projects
+    .content
+      display: flex
+      flex-wrap: wrap
+      .project
+        width: calc(33% - 20px)
+        padding: 20px
+        box-sizing: border-box
+        margin-right: 20px
+        border: 1px solid cyan
+        box-shadow: 0px 15px 30px 10px black
+        transition: box-shadow .5s
+        margin-bottom: 30px
+        &:hover
+          box-shadow: 0px 15px 30px 10px cyan
+          h3
+            color: white
+        .js &
+          position: relative
+          top: 40px
+          opacity: 0
+          transition: top 1s, opacity 1s
+          &.up
+            top: 0
+            opacity: 1
+
+  #side
+    position: absolute
     top: 0
-    opacity: 1
+    right: 100px
+    bottom: 0
+    width: 300px
+    overflow: hidden
 
-#page
-  width: 1200px
-  margin: 0 auto
+  .test
+    display: inline-block
+    border: 1px solid cyan
+    box-sizing: border-box
+    overflow: hidden
+    color: cyan
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
 
-h1, h2, h3, h4
-  color: cyan
-  transition: color 1s
+  #test
+    right: 100%
+    transition: right $ani .8s .6s
+    .transition &
+      right: 0
+    &:hover
+      right: 100%
 
-a
-  text-decoration: none
+  .content-wrapper
+    width: 900px
 
-.section
-  margin: 20px 0
-  border-top: 1px solid cyan
-  border-bottom: 1px solid cyan
-
-#projects
-  .content
-    display: flex
-    flex-wrap: wrap
-    .project
-      width: calc(33% - 20px)
-      padding: 20px
+  .item-wrapper
+    width: 250px
+    height: 300px
+    display: inline-block
+    margin: 20px
+    &:nth-child(3n+2)
+      .item
+        transition: width $ani .8s .3s, height $ani .8s .9s
+        .title
+          transition: left $ani .8s 1.5s, height $ani .8s .1s
+        .content
+          transition: right $ani .8s 1.6s
+    &:nth-child(3n+3)
+      .item
+        transition: width $ani .8s .4s, height $ani .8s 1s
+        .title
+          transition: left $ani .8s 1.6s, height $ani .8s .1s
+        .content
+          transition: right $ani .8s 1.7s
+    .item
+      overflow: hidden
       box-sizing: border-box
-      margin-right: 20px
+      display: inline-block
+      height: 0
+      transition: width $ani .8s .2s, height $ani .8s .8s
+      width: 0
       border: 1px solid cyan
-      box-shadow: 0px 15px 30px 10px black
-      transition: box-shadow .5s
-      margin-bottom: 30px
+      vertical-align: top
+      position: relative
       &:hover
-        box-shadow: 0px 15px 30px 10px cyan
-        h3
-          color: white
-      .js &
+        .title
+          height: 100%
+      .transition &
+        width: 100%
+        height: 100%
+      .title
+        padding: 10px
+        background-color: orange
+        left: 100%
+        height: 15%
         position: relative
-        top: 40px
-        opacity: 0
-        transition: top 1s, opacity 1s
-        &.up
-          top: 0
-          opacity: 1
+        box-sizing: border-box
+        transition: left $ani .8s 1.4s, height $ani .8s .1s
+        .transition &
+          left: 0
+      .content
+        padding: 10px
+        color: white
+        height: 85%
+        background-color: black
+        right: 100%
+        position: relative
+        transition: right $ani .8s 1.5s
+        .transition &
+          right: 0
+
+
+  .path
+    stroke-dasharray: 1000
+    stroke-dashoffset: 1000
+    animation: dash 5s $ani forwards
+    &.delay-1
+      animation: dash 5s 1s $ani forwards
+
+  @keyframes dash
+    to
+      stroke-dashoffset: 0
+
+.test-page
+
+  &#page-wrapper, #page
+    min-height: 100vh
+
+  #header
+    background-color: #0E0B08
+    position: fixed
+    top: -58px
+    left: 0
+    right: 0
+    height: 58px
+    transition: top $ani .5s 1s
+    .top-scroll &
+      transition: top $ani .5s
+      top: 0
+
+  #content
+    height: 200vh
+
+  #items-wrapper
+    max-width: 1200px
+    margin: 0 auto
+    display: flex
+    .item
+      display: inline-block
+      margin: 0 5px
+      flex: 1
+      position: relative
+      bottom: 58px
+      .item-title
+        color: white
+        text-align: center
+        padding: 20px
+        box-sizing: border-box
+        background-color: #424242
+        position: relative
+        z-index: 100
+      &:hover
+        .item-content-wrapper
+          top: 100% !important
+      .top-scroll &
+        bottom: 0
+      .item-content-wrapper
+        transition: top $ani .5s
+        position: absolute
+        left: 0
+        right: 0
+        background-color: #0E0B08
+        padding: 10px
+        text-align: center
+        color: white
+        .item-line
+          position: relative
+          padding: 5px
+          &:hover
+            background-color: #424242
+            .item-sub
+              left: 100%
+              opacity: 1
+          .item-sub
+            transition: left $ani .5s, opacity $ani .5s
+            background-color: #0E0B08
+            position: absolute
+            left: 0
+            width: 100%
+            top: 0
+            opacity: 0
+            margin: 0 5px
+            padding: 5px
+            box-sizing: border-box
+
+
+  $item-ani: $ani
+
+  .item-0,
+  .item-6
+    transition: background-color ease .3s, bottom $item-ani 1s .6s
+  .item-1,
+  .item-5
+    transition: background-color ease .3s, bottom $item-ani 1s .4s
+  .item-2,
+  .item-4
+    transition: background-color ease .3s, bottom $item-ani 1s .2s
+  .item-3
+    transition: background-color ease .3s, bottom $item-ani 1s
