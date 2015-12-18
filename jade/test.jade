@@ -1,0 +1,19 @@
++html
+  +page(['test'])
+    #header
+      #items-wrapper
+        - for (var i = 0; i < 7; i++)
+          .item(class=('item-#{i}'))
+            .item-title
+              | #{i}-item
+            .item-content-wrapper(data-dz-mapping="top=outerHeight")
+              .item-content
+                - for (var ii = 0; ii < 10; ii++)
+                  .item-line
+                    | text-#{ii}
+                    .item-sub
+                      - for (var iii = 0; iii < 5; iii++)
+                        .item-line
+                          | text-#{iii}
+    #content
+    #footer
